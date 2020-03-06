@@ -36,7 +36,6 @@ const UserBox = styled('div')`
     margin-bottom: 10px;
   }
 `
-
 const TextBox = styled('div')`
   padding-left: 10px;
   grid-area: "text";
@@ -47,10 +46,10 @@ const TextBox = styled('div')`
 
 function Tweet(props) {
 
-  const { user, text } = props
+  const { user, text, showModal } = props
 
   return (
-    <Container>
+    <Container onClick={() => showModal(user, text)}>
       <Box>
         <UserBox>
           <img src={defaultimg} alt={"Foto de perfil"} className="userimg"/>

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import Tweet from './Tweet'
+import Modal from './Modal'
 
 const PanelBox = styled('div')`
     width: 60%;
@@ -13,16 +14,32 @@ function Panel(props) {
 
   const { tweets } = props
 
+  const [show, setShow] = useState(false)
+  const [user, setUser] = useState('')
+  const [text, setText] = useState('')
+
+
+  const showModal = (user, text) => {
+    setShow(!show);
+    setUser(user)
+    setText(text)
+  }
+
   const list = tweets.map(tweet => {
     return (
-        <Tweet user={tweet.user.name} text={tweet.text} />
+      <>
+        <Tweet user={tweet.user.name} text={tweet.text} showModal={showModal} />
+      </>
     )
   })
 
   return (
-    <PanelBox>
-        {list}
-    </PanelBox>
+    <>
+      <PanelBox>
+          {list}
+      </PanelBox>
+      <Modal onClose={showModal} show={show} user={user} text={text} />
+    </>
   )
 }
 
