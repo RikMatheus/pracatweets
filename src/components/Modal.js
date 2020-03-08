@@ -7,9 +7,10 @@ const ModalBox = styled('div')`
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% - 100px);
     height: 100%;
     background: rgba(253, 254, 255, 0.712);
+    transition: 5s linear;
   
     h3, p {
         margin: 0;
@@ -26,7 +27,7 @@ const ModalBox = styled('div')`
         width: 80%;
         height: 90%;
         top: 50%;
-        left: 50%;
+        left: calc(50% - 50px);
         transform: translate(-50%,-50%);
     }
 
@@ -38,19 +39,23 @@ const ModalBox = styled('div')`
         font-size: 16pt;
         padding: 20px;
         border-right: solid 2px #d8e6f0;
+        text-align: center;
     }
 
     .userimg {
-        width: 100%;
+        max-width: 100px;
         border-radius: 50%;
         border: 2px solid white;
-        max-width: 200px;
         margin-bottom: 10px;
+
+        @media(min-width: 900px){
+            max-width: 200px;
+        }
     }
 
     .text {
         grid-area: "text";
-        font-size: 18pt;
+        font-size: 30pt;
         padding: 20px;
     }
   

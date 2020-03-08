@@ -32,7 +32,7 @@ const UserBox = styled('div')`
     width: 70%;
     border-radius: 50%;
     border: 2px solid white;
-    max-width: 200px;
+    max-width: 150px;
     margin-bottom: 10px;
   }
 `
