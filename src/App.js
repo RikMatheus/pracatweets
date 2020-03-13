@@ -13,7 +13,6 @@ const Container = styled('div')`
 
   .tweetpanel {
     overflow: auto;
-
   }
 
   .tweetpanel::-webkit-scrollbar {
@@ -24,7 +23,8 @@ const Container = styled('div')`
     pointer-events: none;
     min-height: 100px;
     width: calc(100% - 100px);
-    position: absolute;
+    position: fixed;
+    left: 0;
     bottom: 0;
     background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 100%);
     background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%);

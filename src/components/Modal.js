@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components'
 
+import { FadeIn, FadeOut } from 'animate-css-styled-components'
 import defaultimg from '../assets/defaultuser.png'
 
-const ModalBox = styled('div')`
+const ModalBox = styled.div`
+    
     position: fixed;
     top: 0;
     left: 0;
     width: calc(100% - 100px);
     height: 100%;
     background: rgba(253, 254, 255, 0.712);
-    transition: 5s linear;
-  
+
     h3, p {
         margin: 0;
     }
@@ -29,6 +30,7 @@ const ModalBox = styled('div')`
         top: 50%;
         left: calc(50% - 50px);
         transform: translate(-50%,-50%);
+        transition: linear 1s;
     }
 
     .user {
@@ -69,30 +71,34 @@ const ModalBox = styled('div')`
 `
 
 function Modal(props) {
-  //avatar
-  const { user, text, show, onClose } = props
+    //avatar
+    const { user, text, show, onClose } = props
 
-  const handleClose = () => {
-    onClose && onClose()
-  }
+    const handleClose = () => {
+        onClose && onClose()
+    }
 
-  if(!show){
-    return null
-  }
+    if (!show) {
+        return null
+    }
 
-  return (
-    <ModalBox onClick={() => handleClose()}>
-        <div className="modal-main"> 
-            <div className="user">
-                <img src={defaultimg} alt={"Foto de perfil"} className="userimg"/>
-                <h3>{user}</h3>
-            </div>
-            <div className="text">
-                <p>{text}</p>
-            </div>
-        </div>
-    </ModalBox>
-  )
+    console.log('foi!')
+
+    return (
+        <FadeIn duration="0.3s" delay="0s">
+            <ModalBox>
+                <div className="modal-main" onClick={() => handleClose()}>
+                    <div className="user">
+                        <img src={defaultimg} alt={"Foto de perfil"} className="userimg" />
+                        <h3>{user}</h3>
+                    </div>
+                    <div className="text">
+                        <p>{text}</p>
+                    </div>
+                </div>
+            </ModalBox>
+        </FadeIn>
+    )
 }
 
 export default Modal;

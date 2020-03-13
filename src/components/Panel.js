@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 import Tweet from './Tweet'
 import Modal from './Modal'
 
 const PanelBox = styled('div')`
-    width: 60%;
+    width: 70%;
     margin: auto;
     background-color: #133b57;
 `
@@ -36,9 +37,14 @@ function Panel(props) {
   return (
     <>
       <PanelBox>
-          {list}
+        {list}
       </PanelBox>
-      <Modal onClose={showModal} show={show} user={user} text={text} />
+      {
+        show === true ?
+          <Modal onClose={showModal} show={show} user={user} text={text} />
+          :
+          ""
+      }
     </>
   )
 }
